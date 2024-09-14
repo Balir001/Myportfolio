@@ -73,7 +73,7 @@
         position: relative;
       }
       h1,
-      h2 {
+      h2,h4 {
         color: #e94560;
         margin-bottom: 20px;
       }
@@ -327,6 +327,22 @@
         align-items: center;
         justify-content: center;
       }
+
+      .content-stack {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent line wrapping */
+}
+.stack-list-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+}
     </style>
   </head>
   <body>
@@ -378,11 +394,28 @@ Pwani University in the coming month.
           you’re looking to build a website, develop a web application, or
           explore new ideas, I am here to assist and collaborate with you.
         </p>
-        <ul class="stack-list">
-          <li>HTML & CSS</li>
-          <li>JavaScript (React & Node.js)</li>
-          <li>Python (currently learning)</li>
-        </ul>
+        <div class="content-stack">
+            <ul class="stack-list">
+                <div class="stack-list-div">
+                    <h4>Languages</h4>
+                </div>
+                
+                <li>HTML & CSS</li>
+                <li>JavaScript (React & Node.js)</li>
+                <li>SQL Database and Sequelize ORM</li>
+                <li>Python (currently learning)</li>
+              </ul>
+              <ul class="stack-list">
+                <div class="stack-list-div">
+                    <h4>Certifications</h4>
+                </div>
+                <li><a href="https://www.credly.com/badges/a29cb6f7-f264-4c5b-b42c-6c5dd408ac4e/public_url" target="_blank"> IBM SkillBuild Ai fundamentals</a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+                <li><a></a></li>
+              </ul>
+        </div>
+       
       </div>
       <div class="decoration code-symbol">&lt;/&gt;</div>
     </section>
