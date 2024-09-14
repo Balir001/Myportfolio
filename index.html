@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blair Alasi - Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #1a1a2e;
+        color: #ffffff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      .progress-container {
+        position: fixed;
+        top: 0;
+        z-index: 2;
+        width: 100%;
+        height: 4px;
+        background: #ccc;
+      }
+      .progress-bar {
+        height: 4px;
+        background: #e94560;
+        width: 0%;
+      }
+      .nav-bar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        z-index: 3;
+        background-color: rgba(26, 26, 46, 0.8);
+        padding: 10px;
+        border-radius: 30px;
+      }
+      .nav-button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #e94560;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        transition: all 0.3s ease;
+      }
+      .nav-button:hover {
+        background-color: #ffffff;
+        color: #e94560;
+      }
+      section {
+        height: 100vh;
+        padding: 60px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      h1,
+      h2 {
+        color: #e94560;
+        margin-bottom: 20px;
+      }
+      .content {
+        max-width: 800px;
+        text-align: center;
+      }
+
+      .stack-list,
+      .project-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .stack-list li,
+      .project-list li {
+        background-color: #16213e;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .contact-content,
+      .stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+      }
+      /* Styling for the paragraph */
+.stack p {
+    margin: 0; /* Remove default margin */
+    padding: 0 10px; /* Optional padding */
+    line-height: 1.5; /* Adjust line height if needed */
+    max-width: 800px; /* Optional: set a max-width for readability */
+}
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #16213e;
+        border: 1px solid #e94560;
+        color: #ffffff;
+      }
+      .contact-form button {
+        background-color: #e94560;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      .decoration {
+        position: absolute;
+        font-size: 40px;
+        opacity: 0.2;
+      }
+      .grad-cap {
+        top: 20px;
+        right: 20px;
+      }
+      .code-symbol {
+        bottom: 20px;
+        left: 20px;
+      }
+      .project-icon {
+        top: 20px;
+        left: 20px;
+      }
+      .contact-icon {
+        bottom: 20px;
+        right: 20px;
+      }
+
+      /* About Section Custom Styling */
+      .about-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1000px;
+        position: relative;
+      }
+
+      .avatar {
+        flex: 1;
+        max-width: 50%;
+        height: auto;
+        border-radius: 55%;
+        cursor: pointer;
+      }
+
+      .details {
+        flex: 1;
+        padding-left: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .about-container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .details {
+          padding-left: 0;
+        }
+
+        .avatar {
+          margin-bottom: 20px;
+        }
+      }
+      #projects {
+        padding: 20px;
+        height: auto;
+        min-height: 100vh;
+      }
+      .content {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding-bottom: 20px;
+        scrollbar-width: thin;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+      }
+      .content::-webkit-scrollbar {
+        height: 8px;
+      }
+      .content::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+      }
+      .content::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      .project-list {
+        display: inline-flex;
+        list-style-type: none;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+      }
+      .project-card {
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 500px;
+        white-space: normal;
+        display: inline-block;
+        vertical-align: top;
+      }
+      .project-card h3 {
+        margin-top: 0;
+      }
+      .project-icon {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .more-projects {
+        display: inline-block;
+        vertical-align: top;
+        padding: 20px;
+        font-style: italic;
+        color: #666;
+      }
+      .github-link {
+        display: inline-block;
+        margin-top: 10px;
+        color: #0366d6;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .arrow {
+        display: inline-block;
+        transition: transform 0.2s;
+      }
+      .github-link:hover .arrow {
+        transform: translateX(5px);
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding-top: 60px;
+      }
+
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close-btn:hover,
+      .close-btn:focus {
+        color: #e94560;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      #caption {
+        margin: auto;
+        display: block;
+        text-align: center;
+        color: #fff;
+        padding: 10px 0;
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          overflow-x: auto;
+          white-space: nowrap;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+        .project-list {
+          display: inline-flex;
+          flex-wrap: nowrap;
+        }
+        .project-card {
+          width: 300px;
+          min-width: 300px;
+          margin-right: 20px;
+        }
+        .more-projects {
+          display: inline-block;
+          white-space: normal;
+          width: 300px;
+        }
+      }
+      .contact-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <nav class="nav-bar">
+      <button class="nav-button" onclick="scrollToSection('about')">🏠</button>
+      <button class="nav-button" onclick="scrollToSection('stack')">💻</button>
+      <button class="nav-button" onclick="scrollToSection('projects')">
+        🚀
+      </button>
+      <button class="nav-button" onclick="scrollToSection('contact')">
+        📧
+      </button>
+    </nav>
+
+    <section id="about">
+      <div class="about-container">
+        <img
+          src="./pexels-pixabay-270408.jpg"
+          alt="Blair Alasi Mtange"
+          class="avatar"
+        />
+        <div class="details">
+          <h1>Blair Alasi Mtange</h1>
+          <h3>About me:</h3>
+          <p>
+            Hi! I'm Blair, a passionate web developer with a keen interest in
+            creating beautiful and functional websites. I love turning ideas
+            into reality through code.
+          </p>
+          <p>
+            I expect to hold a bachelor's degree in BSc Computer Science from
+Pwani University in the coming month.
+          </p>
+        </div>
+        <div class="decoration grad-cap">🎓</div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="stack">
+        <h2>Tech Stack</h2>
+        <p>
+          My expertise spans a range of technologies, and I am passionate about
+          leveraging these tools to bring innovative projects to life. Whether
+          you’re looking to build a website, develop a web application, or
+          explore new ideas, I am here to assist and collaborate with you.
+        </p>
+        <ul class="stack-list">
+          <li>HTML & CSS</li>
+          <li>JavaScript (React & Node.js)</li>
+          <li>Python (currently learning)</li>
+        </ul>
+      </div>
+      <div class="decoration code-symbol">&lt;/&gt;</div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="content">
+        <ul class="project-list">
+          <li class="project-card">
+            <div class="project-icon">🚀</div>
+            <h3>HakishaGBV</h3>
+            <p>
+              HakishaGBV offers a platform for victims of gender-based violence
+              to share their stories, seek support, and access counseling
+              services. The platform provides space for one-on-one chats with
+              specialists, ensuring that victims receive the emotional support
+              they need. By collecting and analyzing data on violence,
+              HakishaGBV facilitates data-driven decision-making to combat
+              gender inequality and violence effectively. This project directly
+              addresses SDG 5: Gender Equality, aiming to empower women and
+              promote equal rights.
+            </p>
+            <p><strong>Completion Status:</strong> Completed</p>
+            <p><strong>Duration:</strong> 6 months</p>
+            <p>
+              <strong>Languages & Technologies Used:</strong> React, Node.js,
+              Sequelize ORM, SQL DB
+            </p>
+            <p><strong>GitHub:</strong></p>
+            <a
+              href="https://github.com/Balir001/HAKISHA-GBV-website"
+              class="github-link"
+              target="_blank"
+              >View on GitHub <span class="arrow">→</span></a
+            >
+          </li>
+          <li class="project-card">
+            <div class="project-icon">🌍</div>
+            <h3>Climate Hero</h3>
+            <p>
+              Climate Hero provides a platform for environmentalists and
+              individuals to track and share their climate action efforts. By
+              promoting awareness, collaboration, and sustainable practices
+              globally, it encourages users to take measurable steps toward
+              environmental conservation and combating climate change. This
+              project aligns with SDG 13: Climate Action, by empowering
+              communities to engage in sustainability efforts.
+            </p>
+            <p><strong>Completion Status:</strong> In Progress</p>
+            <p><strong>Duration:</strong> 4 months (Ongoing)</p>
+            <p>
+              <strong>Languages & Technologies Used:</strong> React, Node.js,
+              Sequelize ORM, PostgreSQL
+            </p>
+            <p><strong>GitHub:</strong></p>
+            <a
+              href="https://github.com/Balir001/Climatehero"
+              class="github-link"
+              target="_blank"
+              >View on GitHub <span class="arrow">→</span></a
+            >
+          </li>
+        </ul>
+        <div class="more-projects">
+          More projects are coming soon... Stay tuned!
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-content">
+        <h2>Contact Me</h2>
+        <form class="contact-form" action="" method="post">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <div class="contact-btn">
+            <button type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+      <div class="decoration contact-icon">📬</div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="avatar-modal" class="modal">
+      <span class="close-btn">&times;</span>
+      <img class="modal-content" id="modal-image" />
+      <div id="caption"></div>
+    </div>
+
+    <script>
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function updateProgressBar() {
+        const winScroll = window.pageYOffset;
+        const height =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("myBar").style.width = scrolled + "%";
+      }
+
+      window.onscroll = updateProgressBar;
+
+      document
+        .querySelector(".contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Message sent! (This is a demo - no message was actually sent)"
+          );
+        });
+
+      // Modal functionality
+      var modal = document.getElementById("avatar-modal");
+      var modalImg = document.getElementById("modal-image");
+      var captionText = document.getElementById("caption");
+
+      var avatar = document.querySelector(".avatar");
+
+      avatar.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      };
+
+      var span = document.getElementsByClassName("close-btn")[0];
+
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>
