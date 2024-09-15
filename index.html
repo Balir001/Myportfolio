@@ -73,7 +73,8 @@
         position: relative;
       }
       h1,
-      h2,h4 {
+      h2,
+      h4 {
         color: #e94560;
         margin-bottom: 20px;
       }
@@ -100,15 +101,13 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        align-items: center;
       }
-      /* Styling for the paragraph */
-.stack p {
-    margin: 0; /* Remove default margin */
-    padding: 0 10px; /* Optional padding */
-    line-height: 1.5; /* Adjust line height if needed */
-    max-width: 800px; /* Optional: set a max-width for readability */
-}
+      .stack p {
+        margin: 0;
+        padding: 0 10px;
+        line-height: 1.5;
+        max-width: 800px;
+      }
 
       .contact-form input,
       .contact-form textarea {
@@ -216,7 +215,7 @@
         margin: 0;
       }
       .project-card {
-        background-color: #f0f0f0;
+        background-color: #16213e;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 20px;
@@ -300,18 +299,72 @@
         padding: 10px 0;
       }
 
+      .contact-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .content-stack {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 20px;
+        max-width: 100%;
+        scrollbar-width: thin;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+      }
+
+      .content-stack::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .content-stack::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+      }
+
+      .content-stack::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .stack-list {
+        display: inline-flex;
+        flex-direction: column;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        min-width: 250px;
+      }
+
+      .stack-list-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #455be9;
+      }
+
       @media (max-width: 768px) {
-        .content {
+        .content,
+        .content-stack {
           overflow-x: auto;
           white-space: nowrap;
           max-width: 300px;
           margin: 0 auto;
         }
-        .project-list {
+        .project-list,
+        .stack-list {
           display: inline-flex;
           flex-wrap: nowrap;
         }
-        .project-card {
+        .project-card,
+        .stack-list {
           width: 300px;
           min-width: 300px;
           margin-right: 20px;
@@ -322,27 +375,6 @@
           width: 300px;
         }
       }
-      .contact-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .content-stack {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  white-space: nowrap; /* Prevent line wrapping */
-}
-.stack-list-div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-a {
-    text-decoration: none;
-}
     </style>
   </head>
   <body>
@@ -378,7 +410,7 @@ a {
           </p>
           <p>
             I expect to hold a bachelor's degree in BSc Computer Science from
-Pwani University in the coming month.
+            Pwani University in the coming month.
           </p>
         </div>
         <div class="decoration grad-cap">🎓</div>
@@ -391,31 +423,36 @@ Pwani University in the coming month.
         <p>
           My expertise spans a range of technologies, and I am passionate about
           leveraging these tools to bring innovative projects to life. Whether
-          you’re looking to build a website, develop a web application, or
+          you're looking to build a website, develop a web application, or
           explore new ideas, I am here to assist and collaborate with you.
         </p>
         <div class="content-stack">
-            <ul class="stack-list">
-                <div class="stack-list-div">
-                    <h4>Languages</h4>
-                </div>
-                
-                <li>HTML & CSS</li>
-                <li>JavaScript (React & Node.js)</li>
-                <li>SQL Database and Sequelize ORM</li>
-                <li>Python (currently learning)</li>
-              </ul>
-              <ul class="stack-list">
-                <div class="stack-list-div">
-                    <h4>Certifications</h4>
-                </div>
-                <li><a href="https://www.credly.com/badges/a29cb6f7-f264-4c5b-b42c-6c5dd408ac4e/public_url" target="_blank"> IBM SkillBuild Ai fundamentals</a></li>
-                <li><a></a></li>
-                <li><a></a></li>
-                <li><a></a></li>
-              </ul>
+          <ul class="stack-list">
+            <div class="stack-list-div">
+              <h4>Languages</h4>
+            </div>
+            <li>HTML & CSS</li>
+            <li>JavaScript (React & Node.js)</li>
+            <li>SQL Database and Sequelize ORM</li>
+            <li>Python (currently learning)</li>
+          </ul>
+          <ul class="stack-list">
+            <div class="stack-list-div">
+              <h4>Certifications</h4>
+            </div>
+            <li>
+              <a
+                href="https://www.credly.com/badges/a29cb6f7-f264-4c5b-b42c-6c5dd408ac4e/public_url"
+                target="_blank"
+              >
+                IBM SkillBuild Ai fundamentals
+              </a>
+            </li>
+            <li><a></a></li>
+            <li><a></a></li>
+            <li><a></a></li>
+          </ul>
         </div>
-       
       </div>
       <div class="decoration code-symbol">&lt;/&gt;</div>
     </section>
@@ -461,7 +498,7 @@ Pwani University in the coming month.
               promoting awareness, collaboration, and sustainable practices
               globally, it encourages users to take measurable steps toward
               environmental conservation and combating climate change. This
-              project aligns with SDG 13: Climate Action, by empowering
+              project aligns with SDG  13: Climate Action, by empowering
               communities to engage in sustainability efforts.
             </p>
             <p><strong>Completion Status:</strong> In Progress</p>
